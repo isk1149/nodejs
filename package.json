@@ -1,0 +1,23 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "nodejs study\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dnpm study",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ljh3575/nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ljh3575/nodejs/issues"
+  },
+  "homepage": "https://github.com/ljh3575/nodejs#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "underscore": "^1.8.3"
+  }
+}
