@@ -66,7 +66,7 @@ var express = require('express');
    fs.writeFile('data/'+title, description, function(err){
     if(err){
       //예를 들면 data2처럼 없는 폴더에 저장한다면 에러.
-      //status(500)은 에러낫다고 컴퓨터에게 알리는 방법.
+      //status(500)은 에러낫다고 컴퓨터에게 알리고 사용자에게 문구 띄움.
        console.log(err);
        res.status(500).send('Internal Server Error');
      }

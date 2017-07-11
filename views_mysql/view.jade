@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+  body
+    h1
+      a(href='/topic') Server Side javaScript
+    ul
+      each row in topics
+        li
+          a(href='/topic/'+row.id)= row.title
+    article
+      if row
+        h2= row.title
+        p= row.description
+        div= 'by '+row.author
+      else
+        h2 Welcome
+        | This is server
+    ul
+      li
+        a(href='/topic/add') add
+      if row
+        li
+          a(href='/topic/'+row.id+'/edit') edit
+        li
+          a(href='/topic/'+row.id+'/delete') delete

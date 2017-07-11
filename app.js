@@ -1,14 +1,14 @@
 var express = require('express');
 var app = express(); // express를 사용하려면 이 두줄까지는 형식적으로 작성.
 var bodyParser = require('body-parser');//post방식을 사용하기 위한 모듈
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));//post방식을 사용하기 위한 모듈
 
-app.use(express.static('public'));//정적인 파일은 public폴더에 잇다.
+app.use(express.static('public'));//정적인 파일은 public폴더에서 꺼내 쓴다는 선언.
 app.set('view engine', 'jade'); //jade와 express를 연결.
 app.set('views', './views'); //템플릿이 있는 폴더를 express에 알려주는 코드. 관습적으로 views라는 이름으로 정했다.
 
 /*express에는 listen이라는 메소드가 있는데 포트번호를 지정해주면 리스닝한다*/
-app.listen(3000, ()=>{
+app.listen(80, '127.0.0.1', ()=>{
   console.log("connected 3000 port");
 })
 
@@ -21,6 +21,7 @@ app.listen(3000, ()=>{
 //get함수는 라우터의 기능이다.
 app.get('/', (req, res)=>{
   res.send('welcome to home');
+  //res.send('end'); <- res.send는 그 다음 문장들은 실행하지 않고 끝낸므로 이 명령은 실행되지 않음.
 });
 
 app.get('/login', (req, res)=>{
@@ -54,7 +55,9 @@ app.get('/dynamic', function(req, res){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //semantic url에서는 req.query 대신 req.params
-app.get('/topic/:id', function(req, res){
+//app.get('/topic/:id', function(req, res){
+app.get(['/topic', '/topic/:id'], (req, res)=>
+{
   var topics = [
     'Javascript is....',
     'Nodejs is...',
