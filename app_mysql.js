@@ -8,7 +8,13 @@ var express = require('express');
    database : 'o2'
  });
 
- conn.connect();
+ conn.connect(function(err){
+   if(!err) {
+    console.log("Database is connected ... \n\n");
+} else {
+    console.log("Error connecting database ... \n\n");
+}
+ });
  var fs = require('fs');
  var app = express();
  app.use(bodyParser.urlencoded({ extended: false }));
